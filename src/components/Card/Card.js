@@ -4,8 +4,9 @@ import "./Card.css"
 
 function Card({ pokemon }) {
 
+
   return (
-    <div className="card" >
+      <div className="card" >
       <div className="cardImg">
         <img src={pokemon.sprites.front_default} alt="" />
       </div>
