@@ -9,7 +9,7 @@ function App() {
   const [pokemonData, setPokemonData] = useState([]);
   const [nextURL, setNextURL] = useState("");
   const [prevURL, setPrevURL] = useState("");
-    const [inputSearch, setInputSearch] = useState(""); // ユーザーの入力を管理
+  const [inputSearch, setInputSearch] = useState(""); // ユーザーの入力を管理
 
   useEffect(() => {
     const fetchPokemonData = async () => {
@@ -19,11 +19,10 @@ function App() {
       loadPokemon(res.results);
       setNextURL(res.next);
       setPrevURL(res.previous);
-      // console.log(res);
       setLoading(false);
     };
     fetchPokemonData();
-  }, [pokemonData]);
+  }, []);
 
   const loadPokemon = async (data) => {
     let _pokemonData = await Promise.all(
@@ -43,9 +42,11 @@ function App() {
     let data = await getAllPokemon(prevURL);
     await loadPokemon(data.results);
     setNextURL(data.next);
+    console.log(data.next);
     setPrevURL(data.previous);
     setLoading(false);
   };
+  console.log(nextURL);
 
   const handleNextPage = async () => {
     setLoading(true);
@@ -71,7 +72,11 @@ function App() {
           <h1>Loading...</h1>
         ) : (
           <>
-            <div className="pokemonCardContainer">
+            <div className="btn">
+              <button onClick={handlePrevPage}>Prev</button>
+              <button onClick={handleNextPage}>Next</button>
+            </div>
+            
               {inputSearch !== " " && filteredPokemons.length === 0 ? (
                 <h1 className="err">No Pokemon found</h1>
               ) : (
@@ -81,11 +86,7 @@ function App() {
                   ))}
                 </div>
               )}
-            </div>
-            <div className="btn">
-              <button onClick={handlePrevPage}>Prev</button>
-              <button onClick={handleNextPage}>Next</button>
-            </div>
+           
           </>
         )}
       </div>

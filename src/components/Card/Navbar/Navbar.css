@@ -33,9 +33,17 @@
   align-items: center;
   justify-content: center;
   flex-direction: row-reverse;
+  margin-top: 10px;
 }
 input {
   border: 0.3px dashed #000000;
-  height:20px;
+  height:30px;
+  width: 200px;
   border-radius: 5px;
+  
+}
+ p {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
 }

@@ -48,6 +48,7 @@ const Navbar = ({ pokemons, setFilteredPokemons, loading }) => {
         ></input>
         <MdCatchingPokemon size={"2.5rem"} color={"red"} />
       </div>
+      <p>You can search for Pokemon within this page</p>
     </>
   );
 };
