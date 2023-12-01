@@ -65,8 +65,7 @@ function App() {
         pokemons={pokemonData}
         setFilteredPokemons={setFilteredPokemons}
         loading={loading}
-        inputSearch={inputSearch}
-      />
+        inputSearch={inputSearch}      />
       <div className="App">
         {loading ? (
           <h1>Loading...</h1>
